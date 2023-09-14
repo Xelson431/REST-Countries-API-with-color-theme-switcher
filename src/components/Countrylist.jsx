@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-// import { useQuery } from 'react-query';
+// import { useQuery } from "react-query";
 import ReactPaginate from "react-paginate";
 import Country from "./Country";
+// import axios from "axios";
 
 function Countrylist() {
   const [data, setData] = useState([]);
@@ -43,6 +44,18 @@ function Countrylist() {
         setData(data); // Update the state with the fetched data
       });
   }, [search, selectedOption]);
+  // const { data } = useQuery("country-list", () => {
+  //   return axios.get(
+  //     `https://restcountries.com/v3.1${
+  //       search
+  //         ? "/name/" + search
+  //         : selectedOption
+  //         ? "/region/" + selectedOption
+  //         : "/all/"
+  //     }`
+  //   );
+  // });
+  // console.log(data);
 
   const [currentPage, setCurrentPage] = useState(0);
 

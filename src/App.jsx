@@ -1,10 +1,11 @@
 import Nav from "./components/Nav";
 import "./App.css";
 import Countrylist from "./components/Countrylist";
+// import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Country from "./components/Country";
 import NotFound from "./components/NotFound";
-
+// const queryClient = new QueryClient();
 function App() {
   return (
     <div className="App">
