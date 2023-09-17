@@ -32,7 +32,6 @@ function Countrylist() {
       }`
     )
       .then((response) => {
-        // console.log(response);
         if (!response.ok) {
           setSearchError("No Countries found");
           return;
@@ -40,22 +39,9 @@ function Countrylist() {
         return response.json();
       })
       .then((data) => {
-        // console.log(data);
-        setData(data); // Update the state with the fetched data
+        setData(data);
       });
   }, [search, selectedOption]);
-  // const { data } = useQuery("country-list", () => {
-  //   return axios.get(
-  //     `https://restcountries.com/v3.1${
-  //       search
-  //         ? "/name/" + search
-  //         : selectedOption
-  //         ? "/region/" + selectedOption
-  //         : "/all/"
-  //     }`
-  //   );
-  // });
-  // console.log(data);
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -66,10 +52,8 @@ function Countrylist() {
     setSelectedCountryCountPerPage(e.target.value);
   };
   const pageCount = Math.ceil(data?.length / selectedCountryCountPerPage);
-  // Handle page change
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
-    // Calculate the range of countries to display
   };
 
   // Calculate the range of countries to display

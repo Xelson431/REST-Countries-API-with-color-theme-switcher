@@ -3,7 +3,8 @@ import "./App.css";
 import Countrylist from "./components/Countrylist";
 // import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Country from "./components/Country";
+import CountryInfo from "./components/CountryInfo";
+
 import NotFound from "./components/NotFound";
 // const queryClient = new QueryClient();
 function App() {
@@ -13,16 +14,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" exact element={<Countrylist />} />
-          <Route
-            path="/Country"
-            element={
-              <Country
-                name={() => {
-                  return [];
-                }}
-              />
-            }
-          />
+          <Route path="/CountryInfo/:CountryName" element={<CountryInfo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
